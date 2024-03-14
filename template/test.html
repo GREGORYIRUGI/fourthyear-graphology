@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Url</title>
+</head>
+<body>
+    <h1>Hello and welcome to graphology testing application</h1>
+    <h2>It has always been better sharing with people on testing</h2>
+    <form action="{% url 'requestHandler' %}" method="post">
+        {% csrf_token %}
+    <input type="text" name="user_input" placeholder="enter url to test">
+    <button type="submit">Submit</button>
+</form>
+<style>
+    .result-text {
+        font-weight: bold;
+        color: red;
+    }
+</style>
+
+{% if result %}
+    <div class="result-text">
+        <h3>Result:</h3>
+        <p>{{ result }}</p>
+    </div>
+{% endif %}
+
+
+
+</body>
+</html>
