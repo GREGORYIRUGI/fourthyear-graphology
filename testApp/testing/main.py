@@ -35,7 +35,7 @@ def testDDOs(url,headers=None,format=True,forced_scan=False,debug_mode=False,pro
             paths.append(parsed.scheme + '://' + parsed.netloc + endpoint)
     
     tests = [field_duplication,alias_overloading,
-             field_duplication,directive_overloading,circular_query_introspection,
+             directive_overloading,circular_query_introspection,
             ]
     
     json_output = []
@@ -89,7 +89,7 @@ def testCSRF(url,headers=None,format=True,forced_scan=False,debug_mode=False,pro
         for endpoint in endpoints:
             paths.append(parsed.scheme + '://' + parsed.netloc + endpoint)
     
-    tests = [detect_graphiql,get_based_mutation,
+    tests = [get_based_mutation,
              post_based_csrf]
     
     json_output = []

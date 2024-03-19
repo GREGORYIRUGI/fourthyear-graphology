@@ -9,6 +9,7 @@ from django.contrib.auth import authenticate
 from rest_framework_simplejwt.tokens import RefreshToken
 from .serializers import UserSerializer
 from rest_framework import status
+from testApp.testing.main import run_queries,testCSRF,testDDOs,testInfodisclosure
 
 def valid_url(url):
     try:
@@ -20,7 +21,7 @@ def valid_url(url):
 
 
 # from testing.main import run_queries
-from testApp.testing.main import run_queries,testCSRF,testDDOs,testInfodisclosure
+
 @api_view(['GET'])
 def getRoutes(request):
     routes =[
@@ -53,7 +54,7 @@ def generalTest(request):
     print("Results",finalResult['resultx'])
     
     if finalResult['resultx'] == "":
-         finalResult['resultx']="application seems not vulnerable"
+         finalResult['resultx']="application seems not vulnerable to any attack"
 
 
     return Response(finalResult)
@@ -80,7 +81,7 @@ def testDDOS(request):
     
     print("Results",finalResult['resultx'])
     if finalResult['resultx'] == "":
-         finalResult['resultx']="application seems not vulnerable"
+         finalResult['resultx']="application seems not vulnerable to ddos attack"
 
     return Response(finalResult)
 
@@ -107,7 +108,7 @@ def testInfoDisclosure(request):
     print("Results",finalResult['resultx'])
     
     if finalResult['resultx'] == "":
-        finalResult['resultx']="application seems not vulnerable"
+        finalResult['resultx']="application seems not vulnerable to information disclosure"
   
 
 
@@ -135,7 +136,7 @@ def testCsrf(request):
     
     print("Results",finalResult['resultx'])
     if finalResult['resultx'] == "":
-         finalResult['resultx']="application seems not vulnerable"
+         finalResult['resultx']="application seems not vulnerable to CSRF attack"
     return Response(finalResult)
 
 
